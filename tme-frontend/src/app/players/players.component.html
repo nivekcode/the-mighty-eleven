@@ -1,0 +1,13 @@
+<div class="grid grid-cols-2 gap-5">
+
+  <div *ngFor="let player of (players$ | async)?.data"
+       class="shadow-2xl rounded-2xl bg-gray-900"
+  >
+    <img class="h-72 w-full object-cover rounded-t-2xl" [src]="player.imageUrl"/>
+    <div class="p-5 text-white flex justify-between">
+      {{ player.name }}
+      <span (click)="addPlayer(player)" class="material-symbols-outlined cursor-pointer">add_circle</span>
+    </div>
+  </div>
+
+</div>

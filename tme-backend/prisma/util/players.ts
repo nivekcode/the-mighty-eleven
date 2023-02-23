@@ -139,3 +139,5 @@ const liverpoolPlayers = [
         position: 'DEF'
     }
 ];
+
+export const allPlayers = [...realMadridPlayers, ...bayernPlayers, ...cityPlayers, ...psgPlayers, ...liverpoolPlayers] as any;

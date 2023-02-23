@@ -1,0 +1,31 @@
+<div class="defensive-team-grid">
+  <ng-container *ngFor="let player of $any((dreamTeam$ | async)?.data)?.players">
+    <img
+      *ngIf="player.position === 'GK'"
+      [src]="player.imageUrl"
+      class="gk bg-blue-800 rounded-2xl w-40 h-48 col-span-4 justify-self-center object-cover"
+    />
+
+    <img
+      *ngIf="player.position === 'DEF'"
+      [src]="player.imageUrl"
+      class="def bg-blue-800 rounded-2xl w-40 h-48 object-cover"
+    />
+  </ng-container>
+</div>
+
+<div class="offensive-team-grid">
+  <ng-container
+    *ngFor="let player of $any((dreamTeam$ | async)?.data)?.players"
+  >
+    <img
+      *ngIf="player.position === 'MID' || player.position === 'FWD'"
+      [src]="player.imageUrl"
+      class="bg-blue-800 rounded-2xl w-40 h-48 object-cover"
+      [ngClass]="{
+      mid: player.position === 'MID',
+      fwd: player.position === 'FWD'
+      }"
+    />
+  </ng-container>
+</div>

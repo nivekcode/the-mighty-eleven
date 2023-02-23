@@ -1,0 +1,37 @@
+.defensive-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 50px;
+  height: 40%;
+}
+
+.offensive-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 50px;
+  height: 40%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.gk {
+  grid-row: 1;
+}
+
+.def {
+  grid-row: 2;
+  justify-self: center;
+}
+
+.mid {
+  grid-row: 3;
+  justify-self: center;
+}
+
+.fwd {
+  grid-row: 4;
+  justify-self: center;
+}
+
