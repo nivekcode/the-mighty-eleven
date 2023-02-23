@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id          Int        @id @default(autoincrement())
+  name        String
+  club        Club
+  position    Position
+  imageUrl    String
+  DreamTeam   DreamTeam? @relation(fields: [dreamTeamId], references: [id])
+  dreamTeamId Int?
+}
+
+model DreamTeam {
+  id      Int      @id @default(autoincrement())
+  name    String
+  players Player[]
+}
+
+enum Position {
+  GK
+  DEF
+  MID
+  FWD
+}
+
+enum Club {
+  Chelsea
+  Liverpool
+  ManCity
+  RealMadrid
+  Bayern
+  PSG
+  Napoli
+}
