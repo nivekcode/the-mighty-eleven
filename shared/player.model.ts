@@ -2,7 +2,8 @@ export interface Player {
     id: number;
     name: string;
     imageUrl: string;
-    club: Club
+    club: Club;
+    position: position;
 }
 
 export enum Club {
@@ -19,3 +20,5 @@ export interface UpdateDreamTeamDTO {
     playerId: number;
     playerIdToReplace?: number;
 }
+
+export type position = 'GK' | 'DEF' | 'MID' | 'FWD';

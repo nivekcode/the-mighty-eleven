@@ -1,15 +1,23 @@
 <div class="defensive-team-grid">
   <ng-container *ngFor="let player of $any((dreamTeam$ | async)?.data)?.players">
     <img
+      (click)="substitutePlayer(player)"
       *ngIf="player.position === 'GK'"
       [src]="player.imageUrl"
       class="gk bg-blue-800 rounded-2xl w-40 h-48 col-span-4 justify-self-center object-cover"
+      [ngClass]="{
+      bordered: freshPlayer?.position === 'GK'
+      }"
     />
 
     <img
+      (click)="substitutePlayer(player)"
       *ngIf="player.position === 'DEF'"
       [src]="player.imageUrl"
       class="def bg-blue-800 rounded-2xl w-40 h-48 object-cover"
+      [ngClass]="{
+      bordered: freshPlayer?.position === 'GK'
+      }"
     />
   </ng-container>
 </div>
@@ -19,12 +27,24 @@
     *ngFor="let player of $any((dreamTeam$ | async)?.data)?.players"
   >
     <img
-      *ngIf="player.position === 'MID' || player.position === 'FWD'"
+      (click)="substitutePlayer(player)"
+      *ngIf="player.position === 'MID'"
       [src]="player.imageUrl"
       class="bg-blue-800 rounded-2xl w-40 h-48 object-cover"
       [ngClass]="{
       mid: player.position === 'MID',
-      fwd: player.position === 'FWD'
+      bordered: freshPlayer?.position === 'MID'
+      }"
+    />
+
+    <img
+      (click)="substitutePlayer(player)"
+      *ngIf="player.position === 'FWD'"
+      [src]="player.imageUrl"
+      class="bg-blue-800 rounded-2xl w-40 h-48 object-cover"
+      [ngClass]="{
+      fwd: player.position === 'FWD',
+      bordered: freshPlayer?.position === 'FWD'
       }"
     />
   </ng-container>

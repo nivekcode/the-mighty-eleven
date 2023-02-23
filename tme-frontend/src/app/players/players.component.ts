@@ -23,11 +23,10 @@ export class PlayersComponent implements OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  addPlayer(player: Player){
-    this.dreamTeamService.addPlayer(player.id).pipe(
+  addPlayer(player: Player) {
+    this.dreamTeamService.addPlayer(player).pipe(
       takeUntil(this.destroy$)
-    ).
-    subscribe();
+    ).subscribe();
   }
 
   ngOnDestroy(): void {
